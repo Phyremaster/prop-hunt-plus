@@ -1,6 +1,6 @@
 GM.NoPlayerPlayerDamage = false
 
-resource.AddFile("sound/high_noon.mp3")
+resource.AddFile("sound/high_noon.wav")
 
 function lastPropStandingTest(pl)
 	
@@ -11,7 +11,7 @@ function lastPropStandingTest(pl)
 		end
 	end
 	
-	if (pl:Team() == TEAM_PROPS) and (propCount == 1) then
+	if (pl.ph_prop && pl.ph_prop:IsValid()) and (propCount == 1) then
         
 		for k, v in pairs(team.GetPlayers(TEAM_PROPS)) do
 			if v:Alive() then
@@ -19,7 +19,7 @@ function lastPropStandingTest(pl)
 				v:GiveAmmo(30, "357", true)
 				
 				PrintMessage(HUD_PRINTCENTER, "The last prop has been given a magnum!")
-                BroadcastLua("surface.PlaySound(\"high_noon.mp3\")")
+                BroadcastLua("surface.PlaySound(\"high_noon.wav\")")
 
                 return
 			end
