@@ -11,7 +11,7 @@ function lastPropStandingTest(pl)
 		end
 	end
 	
-	if (pl.ph_prop && pl.ph_prop:IsValid()) and (propCount == 1) then
+	if !((pl:Team() == TEAM_HUNTERS) or (pl:Team() == TEAM_UNASSIGNED) or (pl:Team() == TEAM_SPECTATOR)) and (propCount == 1) then
         
 		for k, v in pairs(team.GetPlayers(TEAM_PROPS)) do
 			if v:Alive() then

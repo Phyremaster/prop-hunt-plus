@@ -218,13 +218,7 @@ hook.Add("Initialize", "PH_Initialize", Initialize)
 
 -- Called when a player leaves
 function PlayerDisconnected(pl)
-    
-    ----------------------------------------------------------------------------------
-    -- THIS LINE HAS BEEN MODIFIED FOR PROP HUNT PLUS LAST PROP STANDING            --
-	timer.Simple(1, function() pl:RemoveProp() end)                                 --
-    -- A TIMER HAS BEEN ADDED TO GIVE THE LAST PROP STANDING SCRIPT TIME TO TRIGGER --
-    ----------------------------------------------------------------------------------
-
+    pl:RemoveProp()
 end
 hook.Add("PlayerDisconnected", "PH_PlayerDisconnected", PlayerDisconnected)
 
